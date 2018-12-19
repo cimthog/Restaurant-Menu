@@ -119,6 +119,10 @@ h3 {
     height: 60px;
 }
 
+.menu:hover{
+    box-shadow: 2px 2px 7px #666;
+    transition: 3s;
+}
 /* #logo {
     width: 150px;
     height: 150px;
