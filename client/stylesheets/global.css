@@ -1,19 +1,20 @@
 @import url("https://fonts.googleapis.com/css?family=Paytone+One");
 @import url("https://fonts.googleapis.com/css?family=Roboto");
+
 body {
     margin: 0px;
     padding: 0px;
     height: 100vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.59), rgba(0,0,0, 0.59)), url("../images/pizza.png") center no-repeat ;
+    background: linear-gradient(rgba(0, 0, 0, 0.59), rgba(0,0,0, 0.59)), url("../images/pizza2.jpg") center no-repeat ;
     background-size: cover;
     font-family: Roboto;
 }
 
-#red {
+.red {
     color: #FD652F;
 }
 
-#yellow {
+.yellow {
     color: #E5C51E;
 }
 
