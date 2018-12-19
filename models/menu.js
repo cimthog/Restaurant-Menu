@@ -26,6 +26,21 @@ let MenuModel = mongoose.model('Menu Items', menuSchema);
 
 module.exports = MenuModel;
 
+module.exports.displayMenus = function(req,res,next){
+    MenuModel.find()
+    .then(data =>{
+        res.json({
+            found: data.length,
+            user:data})
+    })
+    .catch(err =>{
+        res.json({
+            message: "Failed",
+            Error: err.message
+        })
+    })
+}
+
 module.exports.addNewItem = (menuItem, callback) => {
     menuItem.save(callback);
 }
