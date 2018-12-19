@@ -4,8 +4,8 @@ const express = require('express');
       Menu = require('../models/menu');
 
 
-router.route('/')
-      .get(auth.checkToken,Menu.displayMenus) //just to check if token is working
+//router.route('/')
+  //    .get(auth.checkToken,Menu.displayMenus) //just to check if token is working
 
 
 

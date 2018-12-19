@@ -5,17 +5,20 @@ const express = require('express'),
     app = express(),
     register = require('./routes/signup')
     login = require('./routes/login');
-    dashboard = require('./routes/dashboard')
+    dashboard = require('./routes/dashboard');
+const cors = require('cors');
 
 
-    mongoose.connect("mongodb://localhost/resturant_menu");
+    mongoose.connect("mongodb://localhost/resturant_menu", {useNewUrlParser: true});
     mongoose.Promise = global.Promise;
     const connection = mongoose.connection;
     connection.on('connected', () => console.log("Successfully connected to database"));
     connection.on('err', () => console.log("Failed to connect to db"));
 
     app.use(bodyParser.json());
-    app.use(bodyParser.urlencoded({ extended: true}))
+    app.use(bodyParser.urlencoded({ extended: true}));
+
+    app.use(cors());
 
     app.use('/login',login)
     app.use('/register',register)
