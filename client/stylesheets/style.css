@@ -41,8 +41,9 @@ input[type="search"] {
 
 .search-text {
     background: #FD652F;
-    width: 20%;
+    width: 10%;
     padding: 17px;
+    height: 26px;
 }
 
 .search-text:hover {
@@ -103,6 +104,8 @@ h3 {
 .search-container {
     width: 70%;
     height: 60px;
+    display: flex;
+    justify-content: center;
 }
 
 .menu:hover{
@@ -133,4 +136,79 @@ p {
 
 .top-link:hover {
     color: white;
+}
+
+.link-toggle {
+    display: none;
+}
+
+
+@media screen and (max-width: 760px) {
+    .menu {
+        width: 47%;
+    }
+    
+    .search-container {
+        width: 90%;
+        height: 30px;
+        margin-bottom: 20px;
+        font-size: 16px;
+    }
+    
+    .info-text {
+        font-size: 20px;
+    }
+    
+    .info-text2 {
+        font-size: 18px;
+    }
+    
+    input[type="search"] {
+        width: 60%;
+        padding: 10px
+    }
+    
+    .search-text {
+        width: 20%;
+        padding: 17px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .menu {
+        width: 90%;
+    }
+
+    .nav-bar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .top-links {
+        display: none;
+    }
+    
+    .link-toggle {
+        width: 20%;
+        display: block;
+        padding: 10px 20px;
+        color: #FD652F;
+        cursor: pointer;
+        font-size: 30px;
+    }
+
+    .show {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .name.one {
+        width: 90%;
+    }
+    
+    .visi-bar {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
 }
