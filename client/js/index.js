@@ -70,8 +70,8 @@ function search(data) {
 }
 
 // display image function for unsplash
-function displayImages(images) {
-  images.forEach(image => {
+function displayImages(contents) {
+  contents.forEach(content => {
       //console.log(key, images[key].urls.full);  // iterations for object returns
       const data = {
         imageElement = document.createElement("img"),
@@ -79,10 +79,10 @@ function displayImages(images) {
         description = document.createElement("p"),
         value = document.createElement("h1"),
       }
-      data.imageElement.src = image.image // image property on JSON return
-      data.header = image.title // title property on JSON return
-      data.description = image.description // description propery on JSON return
-      data.value = image.value // value property on JSON return
+      data.imageElement.src = content.image // content property on JSON return
+      data.header = content.title // title property on JSON return
+      data.description = content.description // description propery on JSON return
+      data.value = content.value // value property on JSON return
   
       displaySection.appendChild(data);
   })
