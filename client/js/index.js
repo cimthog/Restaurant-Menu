@@ -44,7 +44,7 @@ function formsubmitted(event) {
 
 function onStart() {
   loadingImage.style.display = ""; //returns loading image
-  imageSection.innerHTML = ""; // clears previous search result section
+  displaySection.innerHTML = ""; // clears previous search result section
 }
 
 function getImages() {
@@ -80,9 +80,9 @@ function displayImages(images) {
         value = document.createElement("h1"),
       }
       data.imageElement.src = image.image // image property on JSON return
-      data.imageElement.header = image.title // title property on JSON return
-      data.imageElement.description = image.description // description propery on JSON return
-      data.imageElement.value = image.value // value property on JSON return
+      data.header = image.title // title property on JSON return
+      data.description = image.description // description propery on JSON return
+      data.value = image.value // value property on JSON return
   
       displaySection.appendChild(data);
   })
