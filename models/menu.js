@@ -26,22 +26,8 @@ let MenuModel = mongoose.model('Menu Items', menuSchema);
 
 module.exports = MenuModel;
 
-module.exports.displayMenus = function(req,res,next){
-    MenuModel.find()
-    .then(data =>{
-        res.json({
-            found: data.length,
-            user:data})
-    })
-    .catch(err =>{
-        res.json({
-            message: "Failed",
-            Error: err.message
-        })
-    })
-}
-
-module.exports.addNewItem = (menuItem, callback) => {
+module.exports.addNewItem = (redis, menuItem, callback) => {
+    
     menuItem.save(callback);
 }
 
@@ -61,22 +47,23 @@ module.exports.deleteMenuItem = (name, callback) => {
     }, callback)
 }
 
-module.exports.findOneMenuItem = (redis, name, callback) => {
-    /*Where redis is a reference to redis, name is the name of the food */
-    redis.get(name, (err, response) => {
+module.exports.findAndCacheMenuItem = (redis,key, query, callback) => {
+    /*Where redis is a reference to redis */
+    redis.get(key, (err, response) => {
         if(err){
+            console.log('An error occured when retrieving value from redis');
             callback(null)
         }else if(response) {
             callback(JSON.parse(response))
         }else{
             MenuModel.findOne({
-                name,
+                query,
             }, (err, data) => {
                 if(err) {
                     console.log('Not found in the db');
                     callback(null)
                 }else{
-                    redis.set(`Menu item: ${name}`, JSON.stringify(data), () => {
+                    redis.set(key, JSON.stringify(data), () => {
                         callback(data)
                     })
                 }

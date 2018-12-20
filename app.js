@@ -5,13 +5,15 @@ const express = require('express'),
     app = express(),
     register = require('./routes/signup')
     login = require('./routes/login');
-    dashboard = require('./routes/dashboard')
+    dashboard = require('./routes/dashboard');
+const cors = require('cors');
+const logger = require('morgan');
 
 const menuModel = require('./models/menu');
 const publicPath = path.resolve(__dirname, "public");
 
 
-    mongoose.connect("mongodb://localhost/resturant_menu");
+    mongoose.connect("mongodb://localhost/resturant_menu", {useNewUrlParser: true});
     mongoose.Promise = global.Promise;
     const connection = mongoose.connection;
     connection.on('connected', () => console.log("Successfully connected to database"));
@@ -21,6 +23,9 @@ const publicPath = path.resolve(__dirname, "public");
     app.use(bodyParser.urlencoded({ extended: true}));
 
     app.use(express.static(publicPath));
+    app.use(cors());
+
+    app.use(logger('dev'));
 
     app.use('/login',login)
     app.use('/register',register)
