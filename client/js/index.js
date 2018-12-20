@@ -1,11 +1,12 @@
 const API_URL = "";
-
 const form = document.querySelector("form"); // submit search form
 
 const input = document.querySelector("input");
 const loadingImage = document.querySelector("#loadingImage");
-const displaySection = document.querySelector(".menu");
 
+// display Section
+const displaySection = document.querySelector(".menu");
+const menu_list = document.getElementById("list");
 loadingImage.style.display = "none"; //removes loading image when page is gone
 
 form.addEventListener("submit", formsubmitted);
@@ -17,8 +18,8 @@ window.addEventListener(
     event.preventDefault();
 
     onStart();
-    getImages()
-      .then(displayImages)
+    get()
+      .then(displayContent)
       .then(() => {
         loadingImage.style.display = "none";
       });
@@ -35,7 +36,7 @@ function formsubmitted(event) {
   onStart();
   search(newData)
     .then(res => {
-      displayImages(res);
+      displayContent(res);
     })
     .then(() => {
       loadingImage.style.display = "none";
@@ -47,7 +48,7 @@ function onStart() {
   displaySection.innerHTML = ""; // clears previous search result section
 }
 
-function getImages() {
+function get() {
   return fetch(API_URL)
     .then(response => response.json())
     .then(result => {
@@ -69,21 +70,14 @@ function search(data) {
     });
 }
 
-// display image function for unsplash
-function displayImages(contents) {
+function displayContent(contents) {
   contents.forEach(content => {
-      //console.log(key, images[key].urls.full);  // iterations for object returns
-      const data = {
-        imageElement = document.createElement("img"),
-        header = document.createElement("h3"),
-        description = document.createElement("p"),
-        value = document.createElement("h1"),
-      }
-      data.imageElement.src = content.image // content property on JSON return
-      data.header = content.title // title property on JSON return
-      data.description = content.description // description propery on JSON return
-      data.value = content.value // value property on JSON return
-  
-      displaySection.appendChild(data);
-  })
+    var menu_line = `<img src="${content.image}" class="imagery"> 
+    <h3>${content.title}</h3>
+    <p class="description">${content.description}</p>
+    <h1>${content.value}</h1>
+    `;
+
+    menu_list.innerHTML += menu_line;
+  });
 }
