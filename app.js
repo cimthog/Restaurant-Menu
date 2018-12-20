@@ -7,6 +7,7 @@ const express = require('express'),
     login = require('./routes/login');
     dashboard = require('./routes/dashboard');
 const cors = require('cors');
+const logger = require('morgan');
 
 
     mongoose.connect("mongodb://localhost/resturant_menu", {useNewUrlParser: true});
@@ -19,6 +20,8 @@ const cors = require('cors');
     app.use(bodyParser.urlencoded({ extended: true}));
 
     app.use(cors());
+
+    app.use(logger('dev'));
 
     app.use('/login',login)
     app.use('/register',register)
