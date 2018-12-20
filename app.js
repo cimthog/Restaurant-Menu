@@ -1,7 +1,11 @@
 const express = require('express'),
     path = require('path'),
     mongoose = require('mongoose'),
-    app = express();
+    bodyParser = require('body-parser');
+    app = express(),
+    register = require('./routes/signup')
+    login = require('./routes/login');
+    dashboard = require('./routes/dashboard')
 
 
     mongoose.connect("mongodb://localhost/resturant_menu");
@@ -10,7 +14,12 @@ const express = require('express'),
     connection.on('connected', () => console.log("Successfully connected to database"));
     connection.on('err', () => console.log("Failed to connect to db"));
 
+    app.use(bodyParser.json());
+    app.use(bodyParser.urlencoded({ extended: true}))
 
+    app.use('/login',login)
+    app.use('/register',register)
+    app.use('/dashboard',dashboard)
 
     //Starting the server
 const server = app.listen(3000, ()=>{
