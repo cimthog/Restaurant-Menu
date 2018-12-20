@@ -7,6 +7,9 @@ const express = require('express'),
     login = require('./routes/login');
     dashboard = require('./routes/dashboard')
 
+const menuModel = require('./models/menu');
+const publicPath = path.resolve(__dirname, "public");
+
 
     mongoose.connect("mongodb://localhost/resturant_menu");
     mongoose.Promise = global.Promise;
@@ -15,11 +18,42 @@ const express = require('express'),
     connection.on('err', () => console.log("Failed to connect to db"));
 
     app.use(bodyParser.json());
-    app.use(bodyParser.urlencoded({ extended: true}))
+    app.use(bodyParser.urlencoded({ extended: true}));
+
+    app.use(express.static(publicPath));
 
     app.use('/login',login)
     app.use('/register',register)
     app.use('/dashboard',dashboard)
+
+    app.get('/api/v1/menu', (req, res) => {
+        menuModel.find({}, (err, menuItems) => {
+            if(err){
+                console.log('Error getting all food items');
+                return next(err)
+            }
+
+            res.status(200).json({
+                items: menuItems
+            })
+        })
+    });
+
+    app.get('/api/v1/menu/:category', (req, res) => {
+        console.log(req.params.category)
+        menuModel.find({
+            category: req.params.category
+        }, (err, menuItems) => {
+            if(err){
+                console.log('Error getting all food items');
+                return next(err)
+            }
+
+            res.status(200).json({
+                items: menuItems
+            })
+        })
+    })
 
     //Starting the server
 const server = app.listen(3000, ()=>{
