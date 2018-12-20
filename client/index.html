@@ -1,73 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
-    <link href="stylesheets/style.css" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link href="stylesheets/style.css" rel="stylesheet" />
     <title>Restaurant Menu</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="banner">
-        <div class="nav-bar">
-            <div class="visi-bar">
-                <h1 class="name one"><span class="red">U</span><span class="yellow">-lah-</span><span class="red">lah</span></h1>
-                <div class="link-toggle">
-                    <i class="fas fa-ellipsis-h" id="icon"></i>
-                </div>
-            </div>
-            <div class="top-links">
-                <a href="login.html" class="top-link">Sign In</a>
-                <a href="signup.html" class="top-link">Sign Up</a>
-            </div>
+      <div class="nav-bar">
+        <h1 class="name">
+          <span class="red">U</span><span class="yellow">-lah-</span
+          ><span class="red">lah</span>
+        </h1>
+      </div>
+      <div class="info">
+        <img src="images/logo.png" alt="logo" id="logo" />
+        <h1 class="name">
+          <span class="red">U</span><span class="yellow">-lah-</span
+          ><span class="red">lah</span>
+        </h1>
+        <p class="info-text">Quench the thirst and hunger with tasty meals</p>
+        <div class="search-container">
+          <input
+            type="search"
+            id="search-box"
+            placeholder="Search for a meal"
+          />
+          <span class="search-text">Search</span>
         </div>
-        <div class="info">
-            <img src="images/logo.png" alt="logo" id="logo">
-            <h1 class="name"><span class="red">U</span><span class="yellow">-lah-</span><span class="red">lah</span></h1>
-            <p class="info-text">Quench the thirst and hunger with tasty meals</p>
-            <div class="search-container">
-                <input type="search" id="search-box" placeholder="Search for a meal">
-                <span class="search-text">Search</span>
-            </div>
-            <p class="info-text2">Choose from our diverse categories</p>
-        </div>
+        <p class="info-text2">Choose from our diverse categories</p>
+      </div>
     </div>
     <div class="menu-box">
-        <ul>
-            <li class="menu-class">African</li>
-            <li class="menu-class">Snacks</li>
-            <li class="menu-class">Chinese</li>
-            <li class="menu-class">Italian</li>
-            <li class="menu-class">Nigerian</li>
-        </ul>
-        <div class="menu-list">
-            <div class="menu">
+      <ul>
+        <li class="menu-class">African</li>
+        <li class="menu-class">Snacks</li>
+        <li class="menu-class">Chinese</li>
+        <li class="menu-class">Italian</li>
+        <li class="menu-class">Nigerian</li>
+      </ul>
+      <div class="menu-list">
+        <!-- loading images -->
+        <img class="imagery" id="loadingImage" src="images/eatstreet.gif" />
+
+        <!-- API CONTENT DISPLAY -->
+        <div id="list" class="menu"></div>
+
+        <!-- <div class="menu">
                 <img src="images/img01.png" class="imagery">
                 <h3>Hot Dogs</h3>
                 <p class="description">This is a short description of the food, It should be tasty and uhlahlah</p>
-                <p class="title">NGN 450.00</p>
-            </div>
-            <div class="menu">
-                <img src="images/img02.png" class="imagery">
-                <h3>Hot Dogs</h3>
-                <p class="description">This is a short description of the food, It should be tasty and uhlahlah</p>
-                <p class="title">NGN 450.00</p>
-            </div>
-            <div class="menu">
-                <img src="images/img03.png" class="imagery">
-                <h3>Hot Dogs</h3>
-                <p class="description">This is a short description of the food, It should be tasty and uhlahlah</p>
-                <p class="title">NGN 450.00</p>
-            </div>
-            <div class="menu">
-                <img src="images/img01.png" class="imagery">
-                <h3>Hot Dogs</h3>
-                <p class="description">This is a short description of the food, It should be tasty and uhlahlah</p>
-                <p class="title">NGN 450.00</p>
-            </div>
-        </div>
+                <p class="title">NGN 450.00</p> // chnaged to h1
+            </div>-->
+      </div>
     </div>
-    <script src="js/toggleMenu.js"></script>
-</body>
+    <script src="index.js"></script>
+  </body>
 </html>
