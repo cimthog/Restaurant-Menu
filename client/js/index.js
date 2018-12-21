@@ -1,15 +1,20 @@
-const API_URL = "";
-const form = document.querySelector("form"); // submit search form
+let category = "African";
+let lastClicked = document.querySelector(".active");
+const form = document.querySelector(".search-text"); // submit search form
 
 const input = document.querySelector("input");
 const loadingImage = document.querySelector("#loadingImage");
+//selects the links on the page
+const menuClasses = document.querySelectorAll(".menu-class");
 
 // display Section
 const displaySection = document.querySelector(".menu");
 const menu_list = document.getElementById("list");
 loadingImage.style.display = "none"; //removes loading image when page is gone
 
-form.addEventListener("submit", formsubmitted);
+form.addEventListener("click", formsubmitted);
+
+menuClasses.forEach(menuClass => menuClass.addEventListener("click", linkClicked))
 
 // display content on start
 window.addEventListener(
@@ -18,7 +23,7 @@ window.addEventListener(
     event.preventDefault();
 
     onStart();
-    get()
+    get("Africa")
       .then(displayContent)
       .then(() => {
         loadingImage.style.display = "none";
@@ -29,9 +34,29 @@ window.addEventListener(
 
 function formsubmitted(event) {
   event.preventDefault();
+  console.log("clicked")
   const newData = {
     title: input.value
   };
+  console.log(newData)
+
+  onStart();
+  search(newData.title)
+    .then(res => {
+      displayContent(res);
+    })
+    .then(() => {
+      loadingImage.style.display = "none";
+    });
+}
+
+function linkClicked(event) {
+  event.preventDefault();
+  console.log("clicked");
+  lastClicked.classList.remove("active");
+  this.classList.add("active");
+  const newData = this.textContent;
+  lastClicked = this;
 
   onStart();
   search(newData)
@@ -48,8 +73,9 @@ function onStart() {
   displaySection.innerHTML = ""; // clears previous search result section
 }
 
-function get() {
-  return fetch(API_URL)
+function get(data) {
+  const API_URL_GET = `http://localhost:3000/api/v1/menu/${data}`;  
+  return fetch(API_URL_GET)
     .then(response => response.json())
     .then(result => {
       return result;
@@ -57,12 +83,14 @@ function get() {
 }
 
 function search(data) {
-  return fetch(API_URL, {
-    method: "POST",
+  category = data;
+  console.log(category, data);
+  const API_URL_SEARCH = `http://localhost:3000/api/v1/menu/${category}`;
+  return fetch(API_URL_SEARCH, {
+    method: "GET",
     headers: {
       "Content-Type": "application/json; charset=utf-8"
     },
-    body: JSON.stringify(data)
   })
     .then(response => response.json())
     .then(result => {
@@ -73,6 +101,7 @@ function search(data) {
 
 function displayContent(contents) {
   contents.forEach(content => {
+
     var menu_line = `<img src="${content.img}" class="imagery"> 
     <h3>${content.name}</h3>
     <p class="description">${content.description}</p>

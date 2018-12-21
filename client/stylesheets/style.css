@@ -63,6 +63,9 @@ ul {
 
 li:hover {
   cursor: pointer;
+}
+
+li:hover,.active {
   border-bottom: 3px solid white;
 }
 
