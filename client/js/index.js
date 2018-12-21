@@ -73,7 +73,7 @@ function search(data) {
 
 function displayContent(contents) {
   contents.forEach(content => {
-    var menu_line = `<img src="${content.picture}" class="imagery"> 
+    var menu_line = `<img src="${content.img}" class="imagery"> 
     <h3>${content.name}</h3>
     <p class="description">${content.description}</p>
     <h1>${content.price}</h1>
