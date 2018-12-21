@@ -1,7 +1,6 @@
 let category = "African";
-let lastClicked;
-const API_URL = `http://localhost:3000/api/v1/menu/${category}`;
-const form = document.querySelector("form"); // submit search form
+let lastClicked = document.querySelector(".active");
+const form = document.querySelector(".search-text"); // submit search form
 
 const input = document.querySelector("input");
 const loadingImage = document.querySelector("#loadingImage");
@@ -13,9 +12,9 @@ const displaySection = document.querySelector(".menu");
 const menu_list = document.getElementById("list");
 loadingImage.style.display = "none"; //removes loading image when page is gone
 
-form.addEventListener("submit", formsubmitted);
+form.addEventListener("click", formsubmitted);
 
-menuClasses.forEach(menuClass, linkClicked )
+menuClasses.forEach(menuClass => menuClass.addEventListener("click", linkClicked))
 
 // display content on start
 window.addEventListener(
@@ -35,9 +34,11 @@ window.addEventListener(
 
 function formsubmitted(event) {
   event.preventDefault();
+  console.log("clicked")
   const newData = {
     title: input.value
   };
+  console.log(newData)
 
   onStart();
   search(newData.title)
@@ -51,12 +52,11 @@ function formsubmitted(event) {
 
 function linkClicked(event) {
   event.preventDefault();
-  if(lastClicked) {
-    lastClicked.classList.remove("active")
-  }
+  console.log("clicked");
+  lastClicked.classList.remove("active");
   this.classList.add("active");
+  const newData = this.textContent;
   lastClicked = this;
-  const newData = menuClass.textContent;
 
   onStart();
   search(newData)
@@ -73,7 +73,8 @@ function onStart() {
   displaySection.innerHTML = ""; // clears previous search result section
 }
 
-function get() {
+function get(data) {
+  const API_URL = `http://localhost:3000/api/v1/menu/${data}`;  
   return fetch(API_URL)
     .then(response => response.json())
     .then(result => {
@@ -83,12 +84,13 @@ function get() {
 
 function search(data) {
   category = data;
+  console.log(category, data);
+  const API_URL = `http://localhost:3000/api/v1/menu/${category}`;
   return fetch(API_URL, {
     method: "GET",
     headers: {
       "Content-Type": "application/json; charset=utf-8"
     },
-    body: JSON.stringify(data)
   })
     .then(response => response.json())
     .then(result => {
