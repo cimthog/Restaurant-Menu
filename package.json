@@ -4,9 +4,12 @@
   "description": "manages a resturant menu",
   "main": "app.js",
   "dependencies": {
+    "assert": "^1.4.1",
+    "chai": "^4.2.0",
     "express": "^4.16.4",
     "mocha": "^5.2.0",
-    "mongoose": "^5.4.0"
+    "mongoose": "^5.4.0",
+    "supertest": "^3.3.0"
   },
   "devDependencies": {},
   "scripts": {
