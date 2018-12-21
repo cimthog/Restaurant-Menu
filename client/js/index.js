@@ -1,4 +1,5 @@
-let category = "African"
+let category = "African";
+let lastClicked;
 const API_URL = `http://localhost:3000/api/v1/menu/${category}`;
 const form = document.querySelector("form"); // submit search form
 
@@ -50,6 +51,11 @@ function formsubmitted(event) {
 
 function linkClicked(event) {
   event.preventDefault();
+  if(lastClicked) {
+    lastClicked.classList.remove("active")
+  }
+  this.classList.add("active");
+  lastClicked = this;
   const newData = menuClass.textContent;
 
   onStart();
