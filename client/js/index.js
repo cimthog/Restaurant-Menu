@@ -23,7 +23,7 @@ window.addEventListener(
     event.preventDefault();
 
     onStart();
-    get()
+    get("Africa")
       .then(displayContent)
       .then(() => {
         loadingImage.style.display = "none";
