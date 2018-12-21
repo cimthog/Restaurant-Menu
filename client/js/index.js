@@ -1,8 +1,11 @@
-const API_URL = "";
+let category = "African"
+const API_URL = `http://localhost:3000/api/v1/menu/${category}`;
 const form = document.querySelector("form"); // submit search form
 
 const input = document.querySelector("input");
 const loadingImage = document.querySelector("#loadingImage");
+//selects the links on the page
+const menuClasses = document.querySelectorAll(".menu-class");
 
 // display Section
 const displaySection = document.querySelector(".menu");
@@ -10,6 +13,8 @@ const menu_list = document.getElementById("list");
 loadingImage.style.display = "none"; //removes loading image when page is gone
 
 form.addEventListener("submit", formsubmitted);
+
+menuClasses.forEach(menuClass, linkClicked )
 
 // display content on start
 window.addEventListener(
@@ -32,6 +37,20 @@ function formsubmitted(event) {
   const newData = {
     title: input.value
   };
+
+  onStart();
+  search(newData.title)
+    .then(res => {
+      displayContent(res);
+    })
+    .then(() => {
+      loadingImage.style.display = "none";
+    });
+}
+
+function linkClicked(event) {
+  event.preventDefault();
+  const newData = menuClass.textContent;
 
   onStart();
   search(newData)
@@ -57,8 +76,9 @@ function get() {
 }
 
 function search(data) {
+  category = data;
   return fetch(API_URL, {
-    method: "POST",
+    method: "GET",
     headers: {
       "Content-Type": "application/json; charset=utf-8"
     },
@@ -73,9 +93,9 @@ function search(data) {
 function displayContent(contents) {
   contents.forEach(content => {
     var menu_line = `<img src="${content.image}" class="imagery"> 
-    <h3>${content.title}</h3>
+    <h3>${content.name}</h3>
     <p class="description">${content.description}</p>
-    <h1>${content.value}</h1>
+    <h1>${content.price}</h1>
     `;
 
     menu_list.innerHTML += menu_line;
