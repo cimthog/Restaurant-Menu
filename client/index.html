@@ -34,15 +34,21 @@
         </div>
     </div>
     <div class="menu-box">
-        <ul>
-            <li class="menu-class">African</li>
-            <li class="menu-class">Snacks</li>
-            <li class="menu-class">Chinese</li>
-            <li class="menu-class">Italian</li>
-            <li class="menu-class">Nigerian</li>
-        </ul>
-        <div class="menu-list">
-            <div class="menu">
+      <ul>
+        <li class="menu-class active">African</li>
+        <li class="menu-class">Snacks</li>
+        <li class="menu-class">Chinese</li>
+        <li class="menu-class">Italian</li>
+        <li class="menu-class">Nigerian</li>
+      </ul>
+      <div class="menu-list">
+        <!-- loading images -->
+        <img class="imagery" id="loadingImage" src="images/eatstreet.gif" />
+
+        <!-- API CONTENT DISPLAY -->
+        <div id="list" class="menu"></div>
+
+        <!-- <div class="menu">
                 <img src="images/img01.png" class="imagery">
                 <h3>Hot Dogs</h3>
                 <p class="description">This is a short description of the food, It should be tasty and uhlahlah</p>
@@ -68,6 +74,6 @@
             </div>
         </div>
     </div>
-    <script src="js/toggleMenu.js"></script>
-</body>
+    <script src="js/index.js"></script>
+  </body>
 </html>
