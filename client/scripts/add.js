@@ -15,8 +15,7 @@ const addMenu = (name, description, price, category, img) => {
     };
 
     fetch('http://localhost:3000/dashboard', {
-        method: 'POST',
-        body: JSON.stringify(data),
+        method: 'POST'
     })
     .then(res => res.json())
     .then((json) => {
@@ -27,7 +26,6 @@ const addMenu = (name, description, price, category, img) => {
 
 addDishBtn.addEventListener('click', (e) => {
     e.preventDefault();
-    console.log('clicked')
     let name = el_name.value;
     let description = el_description.value;
     let price = el_price.value;
@@ -40,4 +38,5 @@ addDishBtn.addEventListener('click', (e) => {
     }
 
     addMenu(name,description,price,category,img)
+    console.log(name,img)
 })
