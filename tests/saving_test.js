@@ -1,5 +1,5 @@
 const assert = require("assert");
-const newDish = require("../models"); // models yet
+const newDish = require("../models/menu").MenuModels; // models yet
 
 // Describe our tests
 describe("Saving records", function() {
@@ -13,7 +13,7 @@ describe("Saving records", function() {
     });
 
     dish.save().then(function() {
-      assert(!char.isNew);
+      assert(!dish.isNew);
       done();
     });
   });
