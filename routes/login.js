@@ -1,7 +1,6 @@
 var express = require('express'),
     router = express.Router(),
-    admin = require('../models/admin')
-    auth = require('../auth/auth')
+    auth = require('../auth/auth');
 
 
 router.route('/')

@@ -3,6 +3,7 @@ const express = require('express'),
     mongoose = require('mongoose'),
     bodyParser = require('body-parser');
     app = express(),
+    index = require('./routes/index')
     register = require('./routes/signup')
     login = require('./routes/login');
     dashboard = require('./routes/dashboard');
@@ -23,10 +24,12 @@ const publicPath = path.resolve(__dirname, "public");
     app.use(bodyParser.urlencoded({ extended: true}));
 
     app.use(express.static(publicPath));
+    app.use( express.static(path.join(__dirname,'/client')));
     app.use(cors());
 
     app.use(logger('dev'));
 
+    app.use('/home',index)
     app.use('/login',login)
     app.use('/register',register)
     app.use('/dashboard',dashboard)

@@ -20,7 +20,7 @@ const registerUser = (name, password) => {
     .then(res => res.json())
     .then((json) => {
         console.log('Successfully registered');
-        alert('Successfully registered');
+        alert(JSON.stringify(json));
         window.location.href = 'login.html';
     })
     .catch(err => console.log('An error occured', err.message));

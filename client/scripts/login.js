@@ -25,7 +25,7 @@ const signInUser = (name, password) => {
         }
         localStorage.setItem('token', json.token);
         console.log(json.token);
-        // window.location.href = 'dashboard.html';
+        window.location.href = 'admin.html';
     })
     .catch(err => console.log('An error occured', err.message));
 };

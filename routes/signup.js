@@ -18,7 +18,7 @@ router.post('/', (req, res, next) => {
                     return next(err)
                 };
                 console.log(result);
-                res.status(200).json('You are registered!');
+                res.status(200).json('Registration Successful!');
                
             })
         }

@@ -17,7 +17,8 @@ exports.checkAdmin = function(req, res,next){
                 failed: 'No user found'
              });
         }
-        Admin.comparePassword(req.body.password, user.password, function(err, isMatch) {
+        
+        Admin.comparePassword(req.body.password, user[0].password, function(err, isMatch) {
             if (err) {
                 return res.status(401).json({
                     failed: 'Invalid Password'
@@ -25,30 +26,26 @@ exports.checkAdmin = function(req, res,next){
                 //throw err;
             }
             if(isMatch) {
-                return done(null, user)
+                next();
             } else {
                 return res.status(500).json({
                     failed: 'Incorrect Name or password'
                  });
             }
         })
-        next();
+        
     }); 
 }
-
-
-
-exports.userToken = function(name){
+function userToken (name){
      return jwt.sign(
          {name:name},
          "u-lah-lah",
-         {expiresIn: '2h'}       
+         {expiresIn: '5h'}       
      )
- };
+}
 
 exports.login = function(req,res){
-
-    var token = auth.userToken(req.body.name);
+    var token = userToken(req.body.name)
     console.log(token)
     res.status(200).json({token:token})
 }

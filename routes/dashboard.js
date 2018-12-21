@@ -1,6 +1,6 @@
-const express = require('express');
-      router = express.Router();
-      auth = require('../auth/auth');
+var express = require('express'),
+      router = express.Router(),
+      auth = require('../auth/auth'),
       Menu = require('../models/menu');
 const formidable = require('formidable');
 const path = require('path');
