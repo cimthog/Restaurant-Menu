@@ -1,42 +1,34 @@
-const el_name = document.getElementById('mName');
-const el_description = document.getElementById('mDesc');
-const el_price = document.getElementById('mPrice');
-const el_category = document.getElementById('mCat');
-const el_img = document.getElementById('mImg');
-const addDishBtn = document.getElementById('addDishBtn');
+var submitBtn = document.getElementById('addDishBtn');
+var foodName = document.getElementById('mName');
+var desc = document.getElementById('mDesc');
+var cat = document.getElementById('mCat');
+var price = document.getElementById('mPrice');
+var img = document.getElementById('mImg');
 
-const addMenu = (name, description, price, category, img) => {
-    let data = {
-        name,
-        description,
-        price,
-        category,
-        img
-    };
+var selectedFile
+img.onchange = function(){
+    selectedFile = img.files;
+    console.log(selectedFile)
+}
 
-    fetch('http://localhost:3000/dashboard', {
-        method: 'POST'
-    })
-    .then(res => res.json())
-    .then((json) => {
-        console.log(json);
-    })
-    .catch(err => console.log(err));
-};
 
-addDishBtn.addEventListener('click', (e) => {
+submitBtn.addEventListener('click', (e)=> {
     e.preventDefault();
-    let name = el_name.value;
-    let description = el_description.value;
-    let price = el_price.value;
-    let category = el_category.value;
-    let img = el_img.value;
+    console.log(selectedFile[0])
+    console.log('Clicked')
+    var formData = new FormData();
+    console.log(foodName.value, desc.value, cat.value, price.value);
+    formData.append("name", foodName.value);
+    formData.append("description", desc.value);
+    formData.append("category", cat.value);
+    formData.append("price", price.value);
+    formData.append('img', selectedFile[0].uri);
 
-    if (name === '' || description === '' || price === '' || category === '' || img === '') {
-        alert('Please fill all fields');
-        return;
-    }
-
-    addMenu(name,description,price,category,img)
-    console.log(name,img)
+    fetch( 'http://localhost:3000/dashboard', {
+        method: 'POST',
+        body: formData
+       })
+       .then((res) => res.json())
+       .then((json) => console.log(json))
+       .catch(err => console.log(err));
 })
