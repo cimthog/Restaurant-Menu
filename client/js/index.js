@@ -98,6 +98,7 @@ function search(data) {
     });
 }
 
+
 function displayContent(contents) {
   contents.forEach(content => {
     var menu_line = `<img src="${content.image}" class="imagery"> 
