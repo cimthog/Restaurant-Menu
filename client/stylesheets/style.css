@@ -39,16 +39,9 @@ input[type="search"] {
 }
 
 .search-text {
-<<<<<<< HEAD
-    background: #FD652F;
-    width: 10%;
-    padding: 17px;
-    height: 26px;
-=======
   background: #fd652f;
   width: 20%;
   padding: 17px;
->>>>>>> origin/client-js
 }
 
 .search-text:hover {
@@ -113,15 +106,8 @@ h1 {
 }
 
 .search-container {
-<<<<<<< HEAD
-    width: 70%;
-    height: 60px;
-    display: flex;
-    justify-content: center;
-=======
   width: 70%;
   height: 60px;
->>>>>>> origin/client-js
 }
 
 .menu:hover {
@@ -136,7 +122,6 @@ h1 {
 p {
     width: 40%;
 } */
-<<<<<<< HEAD
 
 .nav-bar {
     display: flex;
@@ -229,5 +214,3 @@ p {
         justify-content: space-between;
     }
 }
-=======
->>>>>>> origin/client-js

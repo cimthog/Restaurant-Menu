@@ -5,19 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="stylesheets/login-style.css">
-    <title>Sign In</title>
+    <title>Register</title>
 </head>
 <body>
     <div class="container">
         <img src="images/logo.png" alt="logo" id="logo">
         <h1 class="name"><span class="red">U</span><span class="yellow">-lah-</span><span class="red">lah</span></h1>
-        <p class="signin-text">Sign Up</p>
-        <form class="signin-form">
-            <input type="text" name="username" id="user-name" placeholder="Enter Username">
-            <input type="text" name="password" id="user-password" placeholder="Enter password">
+        <p class="signin-text">Register</p>
+        <form class="signin-form" method="POST">
+            <input type="text" name="username" id="user-name" placeholder="Enter your name">
+            <input type="password" name="password" id="user-password" placeholder="Choose a password">
             <input type="submit" value="Register" id="submit-btn">
-            <p class="footnote"><a href="login.html" class="red">Login</a></p>
+            <p class="footnote">Already have an account? <span class="red"><a href="login.html" >Sign In</a></span></p>
         </form>
     </div>
+
+    <script src="scripts/signup.js"></script>
 </body>
 </html>
