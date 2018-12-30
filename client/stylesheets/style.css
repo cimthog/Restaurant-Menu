@@ -1,115 +1,131 @@
 @import url("global.css");
 
 .info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
-
 
 .banner {
-    height: 80vh;
-    color: white;
+  height: 80vh;
+  color: white;
 }
 
-
 .menu-box {
-    background-color: #e9ebee;
-    margin: 0px;
+  background-color: #e9ebee;
+  margin: 0px;
 }
 
 .info-text {
-    font-size: 30px;
+  font-size: 30px;
 }
 
 .info-text2 {
-    font-size: 25px;
+  font-size: 25px;
 }
 
-input[type="search"], .search-text {
-    height: 60px;
+input[type="search"],
+.search-text {
+  height: 60px;
 
-    font-size: 22px;
-    margin: 0px;
+  font-size: 22px;
+  margin: 0px;
 }
 
 input[type="search"] {
-    width: 80%;
-    padding: 20px;
+  width: 80%;
+  padding: 20px;
 }
 
 .search-text {
+<<<<<<< HEAD
     background: #FD652F;
     width: 10%;
     padding: 17px;
     height: 26px;
+=======
+  background: #fd652f;
+  width: 20%;
+  padding: 17px;
+>>>>>>> origin/client-js
 }
 
 .search-text:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 ul {
-    height: 20px;
-    padding: 15px;
-    list-style-type: none;
-    background-color: #FD652F;
-    color: white;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    font-size: 18px;
-    box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.406);
+  height: 20px;
+  padding: 15px;
+  list-style-type: none;
+  background-color: #fd652f;
+  color: white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 18px;
+  box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.406);
 }
 
 li:hover {
-    cursor: pointer;
-    border-bottom: 3px solid white; 
+  cursor: pointer;
+}
+
+li:hover,.active {
+  border-bottom: 3px solid white;
 }
 
 .menu-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 .menu {
-    width: 23%;
-    height: 50%;
-    transition: all 0.3s
+  width: 23%;
+  height: 50%;
+  transition: all 0.3s;
+  column-count: 3;
 }
 
 .imagery {
-    width: 100%;
-    height: 50%;
+  display: block;
+  margin-left: auto;
+  float: right;
+  width: 50%;
 }
 
 h3 {
-    font-size: 16px;
-    margin: 5px;
-    font-weight: normal;
+  font-size: 16px;
+  margin: 5px;
+  font-weight: normal;
 }
 
-.description {
-    font-size: 13px;
-    color: #8D8D8D;
+p {
+  font-size: 13px;
+  color: #8d8d8d;
 }
 
-.title {
-    color: #FD652F;
-    font-size: 14px;
+h1 {
+  color: #fd652f;
+  font-size: 14px;
 }
 
 .search-container {
+<<<<<<< HEAD
     width: 70%;
     height: 60px;
     display: flex;
     justify-content: center;
+=======
+  width: 70%;
+  height: 60px;
+>>>>>>> origin/client-js
 }
 
-.menu:hover{
-    box-shadow: 2px 2px 7px #666;
+.menu:hover {
+  box-shadow: 2px 2px 7px #666;
 }
 /* #logo {
     width: 150px;
@@ -120,6 +136,7 @@ h3 {
 p {
     width: 40%;
 } */
+<<<<<<< HEAD
 
 .nav-bar {
     display: flex;
@@ -212,3 +229,5 @@ p {
         justify-content: space-between;
     }
 }
+=======
+>>>>>>> origin/client-js
