@@ -1,9 +1,9 @@
-var submitBtn = document.getElementById('submitBtn');
-var foodName = document.getElementById('foodName');
-var desc = document.getElementById('foodDesc');
-var cat = document.getElementById('foodCat');
-var price = document.getElementById('foodPrice');
-var img = document.getElementById('foodImg');
+var submitBtn = document.getElementById('add-dish');
+var foodName = document.getElementById('name');
+var desc = document.getElementById('description');
+var cat = document.getElementById('category');
+var price = document.getElementById('price');
+var img = document.getElementById('img');
 
 var selectedFile
 img.onchange = function(){
@@ -14,11 +14,10 @@ img.onchange = function(){
 
 submitBtn.addEventListener('click', (e)=> {
     e.preventDefault();
-    console.log(img.value)
     console.log(selectedFile[0])
     console.log('Clicked')
     var formData = new FormData();
-    console.log(foodName.value, desc.value, cat.value, price.value);
+    console.log(foodName.value, desc.value, cat.value, price.value1);
     formData.append("name", foodName.value);
     formData.append("description", desc.value);
     formData.append("category", cat.value);

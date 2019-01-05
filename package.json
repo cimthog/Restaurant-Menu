@@ -4,7 +4,6 @@
   "description": "manages a resturant menu",
   "main": "app.js",
   "dependencies": {
-    "bcrypt": "^3.0.2",
     "bcrypt-nodejs": "0.0.3",
     "cors": "^2.8.5",
     "express": "^4.16.4",

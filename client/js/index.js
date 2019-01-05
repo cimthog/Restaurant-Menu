@@ -3,34 +3,35 @@ let lastClicked = document.querySelector(".active");
 const form = document.querySelector(".search-text"); // submit search form
 
 const input = document.querySelector("input");
-const loadingImage = document.querySelector("#loadingImage");
+// const loadingImage = document.querySelector("#loadingImage");
 //selects the links on the page
 const menuClasses = document.querySelectorAll(".menu-class");
 
 // display Section
 const displaySection = document.querySelector(".menu");
 const menu_list = document.getElementById("list");
-loadingImage.style.display = "none"; //removes loading image when page is gone
+// loadingImage.style.display = "none"; //removes loading image when page is gone
 
 form.addEventListener("click", formsubmitted);
 
 menuClasses.forEach(menuClass => menuClass.addEventListener("click", linkClicked))
 
 // display content on start
-window.addEventListener(
+/*window.addEventListener(
   "DOMContentLoaded",
   function(event) {
     event.preventDefault();
 
     onStart();
-    get("Africa")
+    get("African")
       .then(displayContent)
       .then(() => {
-        loadingImage.style.display = "none";
+        // loadingImage.style.display = "none";
       });
   },
   false
 );
+*/
 
 function formsubmitted(event) {
   event.preventDefault();
@@ -46,7 +47,7 @@ function formsubmitted(event) {
       displayContent(res);
     })
     .then(() => {
-      loadingImage.style.display = "none";
+      // loadingImage.style.display = "none";
     });
 }
 
@@ -64,21 +65,23 @@ function linkClicked(event) {
       displayContent(res);
     })
     .then(() => {
-      loadingImage.style.display = "none";
+      // loadingImage.style.display = "none";
     });
 }
 
 function onStart() {
-  loadingImage.style.display = ""; //returns loading image
-  displaySection.innerHTML = ""; // clears previous search result section
+  // loadingImage.style.display = ""; //returns loading image
+  // displaySection.innerHTML = ""; // clears previous search result section
 }
 
 function get(data) {
   const API_URL_GET = `http://localhost:3000/api/v1/menu/${data}`;  
-  return fetch(API_URL_GET)
+  fetch(API_URL_GET)
     .then(response => response.json())
     .then(result => {
-      return result;
+      console.log(result);
+      // return result;
+      displayContent(result.items);
     }); //fetch requets to api url with serachTerm
 }
 
@@ -101,8 +104,8 @@ function search(data) {
 
 function displayContent(contents) {
   contents.forEach(content => {
-
-    var menu_line = `<img src="${content.img}" class="imagery"> 
+    const domain_name = "http://localhost:3000/";
+    var menu_line = `<img src="${domain_name+content.img}" class="imagery"> 
     <h3>${content.name}</h3>
     <p class="description">${content.description}</p>
     <h1>${content.price}</h1>
@@ -111,3 +114,5 @@ function displayContent(contents) {
     menu_list.innerHTML += menu_line;
   });
 }
+
+get("African")

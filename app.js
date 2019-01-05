@@ -24,7 +24,7 @@ const publicPath = path.resolve(__dirname, "public");
     app.use(bodyParser.urlencoded({ extended: true}));
 
     app.use(express.static(publicPath));
-    app.use( express.static(path.join(__dirname,'/client')));
+    // app.use( express.static(path.join(__dirname,'/client')));
     app.use(cors());
 
     app.use(logger('dev'));
