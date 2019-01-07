@@ -10,6 +10,7 @@
 var categorySelectBox = document.getElementById('category');
 var displayAreaForMenuItems = document.getElementsByClassName("menu-list")[0];
 var API_URL = "http://localhost:3000/api/v1/menu/";
+var dishCount = document.getElementById("dish-count");
 
 //Load African dishes first
 getAvailableMenuItems("African");
@@ -23,6 +24,7 @@ function populateDOMWithMenuItems(menuItemsArray){
     clearCurrentlyDisplayingMenuItems();
 
    menuItemsArray.forEach((menuItem, i) => {
+        dishCount.innerHTML = menuItemsArray.length;
         var menuDiv = document.createElement("div");
         menuDiv.classList.add("menu");
         var menuItemImage = document.createElement('img');
