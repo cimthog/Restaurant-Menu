@@ -45,8 +45,6 @@ submitBtn.addEventListener("click", e => {
     img: selectedFile[0],
   }; */
 
-  console.log(formData)
-
   // console.log(data); check the stucture before you push to the api
   // console.log(JSON.stringify(data))
 
@@ -58,10 +56,10 @@ submitBtn.addEventListener("click", e => {
     mode: "no-cors",
     body: formData,
   })
-    .then(response => response.json())
-    .then(result => {
-      console.log(result);
-      // return result;
-    })
-    .catch(err => console.log(err))
+  .then((response) => response.json)
+  .then(result => {
+    console.log(result);
+    // return result;
+  })
+  .catch(err => console.log(err))
 });
