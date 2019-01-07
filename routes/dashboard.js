@@ -18,6 +18,7 @@ router.post('/', (req, res, next) => {
     form.multiples = false;
 
     form.parse(req, (err, fields, files) =>{
+        console.log(files)
         let basename = path.basename(files.img.path);
         let imgPath = `/images/${basename}`;
 
