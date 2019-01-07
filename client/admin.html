@@ -31,8 +31,16 @@
         <a href="#" class="top-link">Sign out</a>
     </div>
     <div id="main">
-        <p>Select Category</p>
-        <input type="text" class="category" placeholder="All">
+        <div class="form-group category">
+            <label for="category">Category</label>
+            <select class="custom-select" id="category">
+                <option value="African">African</option>
+                <option value="Snacks">Snacks</option>
+                <option value="Chinese">Chinese</option>
+                <option value="Italian">Italian</option>
+                <option value="Nigerian">Nigerian</option>
+            </select>
+        </div>
         <div class="list-header">
             <p class="list-header-text">25 dishes left</p>
             <button type="button" class="list-header-button" id="addbut" data-toggle="modal" data-target="#exampleModal">
@@ -62,65 +70,14 @@
               </div>
         </div>
         <div class="menu-list">
-            <div class="menu">
-                <img src="images/img01.png" class="imagery">
-                <h3>Hot Dogs</h3>
-                <p class="description">This is a short description of the food, It should be tasty and uhlahlah</p>
-                <p class="title">NGN 450.00</p>
-            </div>
-            <div class="menu">
-                <img src="images/img01.png" class="imagery">
-                <h3>Hot Dogs</h3>
-                <p class="description">This is a short description of the food, It should be tasty and uhlahlah</p>
-                <p class="title">NGN 450.00</p>
-            </div>
-            <div class="menu">
-                <img src="images/img01.png" class="imagery">
-                <h3>Hot Dogs</h3>
-                <p class="description">This is a short description of the food, It should be tasty and uhlahlah</p>
-                <p class="title">NGN 450.00</p>
-            </div>
-            <div class="menu">
-                <img src="images/img01.png" class="imagery">
-                <h3>Hot Dogs</h3>
-                <p class="description">This is a short description of the food, It should be tasty and uhlahlah</p>
-                <p class="title">NGN 450.00</p>
-            </div>
-            <div class="menu">
-                <img src="images/img01.png" class="imagery">
-                <h3>Hot Dogs</h3>
-                <p class="description">This is a short description of the food, It should be tasty and uhlahlah</p>
-                <p class="title">NGN 450.00</p>
-            </div>
-            <div class="menu">
-                <img src="images/img01.png" class="imagery">
-                <h3>Hot Dogs</h3>
-                <p class="description">This is a short description of the food, It should be tasty and uhlahlah</p>
-                <p class="title">NGN 450.00</p>
-            </div>
-            <div class="menu">
-                <img src="images/img01.png" class="imagery">
-                <h3>Hot Dogs</h3>
-                <p class="description">This is a short description of the food, It should be tasty and uhlahlah</p>
-                <p class="title">NGN 450.00</p>
-            </div>
-            <div class="menu">
-                <img src="images/img01.png" class="imagery">
-                <h3>Hot Dogs</h3>
-                <p class="description">This is a short description of the food, It should be tasty and uhlahlah</p>
-                <p class="title">NGN 450.00</p>
-            </div><div class="menu">
-                <img src="images/img01.png" class="imagery">
-                <h3>Hot Dogs</h3>
-                <p class="description">This is a short description of the food, It should be tasty and uhlahlah</p>
-                <p class="title">NGN 450.00</p>
-            </div>
+            
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="./scripts/addMenuItem.js"></script>
+    <script src="./scripts/admin.js"></script>
 </body>
 
 </html>
