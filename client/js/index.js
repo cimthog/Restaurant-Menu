@@ -108,12 +108,12 @@ function displayContent(contents) {
   contents.forEach(content => {
     const domain_name = "http://localhost:3000/";
     var menu_line = `<div class="menu">
-      <img src="${domain_name+content.img}" class="imagery"> 
-      <h3>${content.name}</h3>
-      <p class="description">${content.description}</p>
-      <p class="title">${content.price}</h1></div>
+    <img src="${domain_name+content.img}" class="imagery"> 
+    <h3>${content.name}</h3>
+    <p class="description">${content.description}</p>
+    <p class="title">${content.price}</h1></div>
     `;
-
+    menu_list.innerHTML = '';
     menu_list.innerHTML += menu_line;
   });
 }
