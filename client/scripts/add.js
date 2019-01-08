@@ -1,10 +1,10 @@
 const API_URL = "http://localhost:3000/dashboard";
-var submitBtn = document.getElementById("addDishBtn");
-var foodName = document.getElementById("mName");
-var desc = document.getElementById("mDesc");
-var cat = document.getElementById("mCat");
-var price = document.getElementById("mPrice");
-var img = document.getElementById("mImg");
+var submitBtn = document.getElementById("add-dish");
+var foodName = document.getElementById("name");
+var desc = document.getElementById("description");
+var cat = document.getElementById("category");
+var price = document.getElementById("price");
+var img = document.getElementById("img");
 var fileContent;
 
 var selectedFile;
