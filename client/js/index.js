@@ -9,7 +9,7 @@ const menuClasses = document.querySelectorAll(".menu-class");
 
 // display Section
 const displaySection = document.querySelector(".menu");
-const menu_list = document.getElementById("list");
+const menu_list = document.querySelector(".menu-list");
 // loadingImage.style.display = "none"; //removes loading image when page is gone
 
 form.addEventListener("click", formsubmitted);

@@ -79,14 +79,12 @@ li:hover,.active {
   width: 23%;
   height: 50%;
   transition: all 0.3s;
-  column-count: 3;
+
 }
 
 .imagery {
-  display: block;
-  margin-left: auto;
-  float: right;
-  width: 50%;
+  width: 100%;
+  height: 50%;
 }
 
 h3 {
