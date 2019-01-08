@@ -60,9 +60,10 @@ function linkClicked(event) {
   lastClicked = this;
 
   onStart();
+  console.log(newData)
   search(newData)
     .then(res => {
-      displayContent(res);
+      displayContent(res.items);
     })
     .then(() => {
       // loadingImage.style.display = "none";
@@ -103,6 +104,7 @@ function search(data) {
 
 
 function displayContent(contents) {
+  console.log(contents)
   contents.forEach(content => {
     const domain_name = "http://localhost:3000/";
     var menu_line = `<div class="menu">
