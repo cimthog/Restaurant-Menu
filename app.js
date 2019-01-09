@@ -7,6 +7,7 @@ const express = require('express'),
     register = require('./routes/signup')
     login = require('./routes/login');
     dashboard = require('./routes/dashboard');
+    search = require('./routes/search');
 const cors = require('cors');
 const logger = require('morgan');
 
@@ -33,6 +34,7 @@ const publicPath = path.resolve(__dirname, "public");
     app.use('/login',login)
     app.use('/register',register)
     app.use('/dashboard',dashboard)
+    app.use('/search', search)
 
     app.get('/api/v1/menu', (req, res) => {
         menuModel.find({}, (err, menuItems) => {
