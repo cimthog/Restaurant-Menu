@@ -106,16 +106,19 @@ function search(data) {
 function displayContent(contents) {
   console.log(contents)
   const domain_name = "http://localhost:3000/";
+  
+  // <img src="${domain_name+content.img}"> 
   menu_list.innerHTML = '';
   menu_list.innerHTML = contents.map(content => {
-      return `<div class="menu">
-      <img src="${domain_name+content.img}" class="imagery"> 
-      <h3>${content.name}</h3>
-      <p class="description">${content.description}</p>
-      <p class="title">${content.price}</h1></div>
-      `;
-    })
-    .join(' ')
+    return `<div class="menu">
+    <div class="imagery" style="background: url('${domain_name+content.img}') center no-repeat; background-size: cover">
+    </div>
+    <h3>${content.name}</h3>
+    <p class="description">${content.description}</p>
+    <p class="title">${content.price}</h1></div>
+    `;
+  })
+  .join(' ')
   
 }
 
