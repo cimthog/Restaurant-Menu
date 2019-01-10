@@ -51,6 +51,9 @@ exports.login = function(req,res){
 }
 
 exports.checkToken = function(req,res,next){
-    verifyToken(req,res,next)
+    verifyToken(req,res,function(err, response){
+        if (err || !req.user.name) return res.sendStatus(401);
+        next();
+    })
   
 }
