@@ -96,8 +96,16 @@ input[type="text"] {
 }
 
 .imagery {
+    background: url('../images/sidney2.jpeg') center no-repeat; 
+    background-size: cover;
     width: 100%;
-    height: 50%;
+    height: 20vh !important; 
+}
+
+.imagery img {
+    max-width: 100%;
+    display: block;
+    height: auto;
 }
 
 h3 {
