@@ -1,1 +1,0 @@
-Menu and Admin schema

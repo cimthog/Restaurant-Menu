@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="stylesheets/admin-style.css" rel="stylesheet">
+    <title>Add new dish</title>
+</head>
+
+
+<body>
+
+        <div class="top-nav">
+            <h1 class="name"><span class="white">U</span><span class="yellow">-lah-</span><span class="white">lah</span></h1>
+            <a href="#" class="top-link">Admin Dashboard</a>
+            <a href="#" class="top-link">Sign out</a>
+            </div>
+
+        <div style="left:30%; top:30%; right: 30%; bottom: 30%; position: absolute;">
+    
+        <div style="background-color:white; width: 600px; padding: 10px; align-items: center; flex-flow: column; display: flex; position: relative; box-shadow: 0px 0px 8px 2px #DDDDDD;">
+            
+            <p style="margin: auto; width: 50%; padding: 10px; align-items: center; flex-flow: column; display: flex;">Add a new dish</p>
+    
+            <img src="images/img01.png" style="widows: 250px; height: 80px; margin: auto; padding: 10px; align-items: center; flex-flow: column; display: flex;">
+    
+            <form enctype="multipart/form-data" method="POST" style="margin: auto; padding: 10px; align-items: center; flex-flow: column; display: flex; margin-top: 50px">
+                <input type="text" id="mName" name="name" placeholder="Enter the name of the dish" style="border:none; border-bottom:2px solid lightgrey; width: 250px"><br>
+                <input type="text" id="mDesc" name="description" placeholder="Enter the description of the dish" style="border:none; border-bottom:2px solid lightgrey; width: 250px"><br>
+                <input type="text" id="mCat" name="category" placeholder="Select dish category" style="border:none; border-bottom:2px solid lightgrey; width: 250px"><br>
+                <input type="text" id="mPrice" name="price" placeholder="NGN   Enter price" style="border:none; border-bottom:2px solid lightgrey; width: 250px"><br>
+                
+                <input type="file" id="mImg" name="img" style="border:none; border-bottom:2px solid lightgrey; width: 250px"><br>
+                <input type="submit" id="addDishBtn" value="Add a new dish" style="width: 200px; background-color:#FD652F; color:#EEEEEE; padding: 10px; margin-top: 20px">
+                </form>
+    
+        </div>
+
+    </div>
+<script src="./scripts/add.js"></script>
+</body>
+</html>

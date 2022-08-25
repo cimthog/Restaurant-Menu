@@ -1,0 +1,52 @@
+@import url("global.css");
+
+.container {
+    width: 100%;
+    height: 100vh;
+    padding-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.signin-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;;
+    height: 50%;
+    width: 100%
+}
+
+input {
+    margin: 15px;
+    font-size: 18px;
+}
+
+input[type="text"],input[type="password"] {
+    width: 60%;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.71);
+    border: 1px solid rgba(255, 255, 255, 0.71);
+    padding: 20px;
+}
+
+input[type="submit"] {
+    width: 64%;
+    background-color: #FD652F;
+    border: 1px solid #FD652F;
+    color: white;
+    padding: 15px 50px;
+}
+
+input[type="submit"]:hover {
+    cursor: pointer;
+}
+
+.signin-text {
+    margin: 0;
+    font-size: 25px;
+}
+
